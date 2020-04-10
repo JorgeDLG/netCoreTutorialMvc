@@ -93,7 +93,7 @@ namespace mvcDotCore.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) //2º validación por si JS en cliente Deshabilitada
             {
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
